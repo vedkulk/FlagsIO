@@ -24,7 +24,7 @@ const App = () => {
   }, []);
 
   const handleGuess = (guess) => {
-    if (guess.toLowerCase() === currentFlag.name.toLowerCase()) {
+    if (guess.toLowerCase().trim() === currentFlag.name.toLowerCase().trim()) {
       setScore(score + 1);
       setHighScore(Math.max(highScore, score + 1));
       setNewFlag(); // Generate a new flag after the correct guess
