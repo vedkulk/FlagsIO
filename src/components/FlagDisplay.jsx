@@ -1,21 +1,18 @@
-import React from 'react'
-import flags from '../data/flags.json';
+import React from 'react';
 
-// Example: Accessing the data
-
-const FlagDisplay = () => {
-    console.log(flags[0].name.common);
-    const flagImg = flags[5].flags.svg 
-
+const FlagDisplay = ({ currentFlag }) => {
   return (
-    <div className='mt-10 w-[250px] h-[200px] md:w-[500px] md:h-[330px] border-2 border-main '>
-      <img 
-        src={flagImg}
-        className="w-full h-full object-cover"
-        alt="Indian flag"
-      />
-    </div>
-  )
-}
+    <>
+      {currentFlag.svg ? (
+        <img
+          src={currentFlag.svg}
+          className="mt-10 w-[280px] h-[200px] md:w-[500px] md:h-[330px] object-cover rounded-md md:object-cover border-2 border-main"
+        />
+      ) : (
+        <div>Loading...</div> // Show loading if flag is not available
+      )}
+    </>
+  );
+};
 
-export default FlagDisplay
+export default FlagDisplay;

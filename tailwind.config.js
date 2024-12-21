@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         main: "rgb(221, 199, 161)",
-        background: "rgb(229, 231, 235)"
+        background: "rgb(229, 231, 235)",
+        border : 'rgb(169, 182, 101)'
       }
     }
   },
