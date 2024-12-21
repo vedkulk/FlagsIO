@@ -29,7 +29,7 @@ const App = () => {
 
   // Function to handle guesses
   const handleGuess = (guess) => {
-    if (guess.toLowerCase() === currentFlag.name.toLowerCase()) {
+    if (guess.toLowerCase().trim() === currentFlag.name.toLowerCase().trim()) {
       const newScore = score + 1;
       setScore(newScore);
       localStorage.setItem('score', newScore); // Save score to localStorage
