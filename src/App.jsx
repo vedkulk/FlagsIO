@@ -29,11 +29,10 @@ const App = () => {
 
   // Function to handle guesses
   const handleGuess = (guess) => {
-    const sanitizedGuess = guess.toLowerCase().trim(); // Sanitize user input
-    const correctAnswer = currentFlag.name.toLowerCase().trim(); // Sanitize flag name
+    const sanitizedGuess = guess.toLowerCase().trim(); 
+    const correctAnswer = currentFlag.name.toLowerCase().trim(); 
   
     if (sanitizedGuess === correctAnswer) {
-      // Correct guess logic
       const newScore = score + 1;
       setScore(newScore);
       localStorage.setItem('score', newScore);
@@ -42,28 +41,26 @@ const App = () => {
       setHighScore(updatedHighScore);
       localStorage.setItem('highScore', updatedHighScore);
   
-      setNewFlag(); // Generate a new flag
+      setNewFlag(); 
     } else if (sanitizedGuess === "") {
-      // Empty input alert
       alert("Please do not leave the input blank.");
     } else {
-      // Incorrect guess logic
       const newScore = 0;
       setScore(newScore);
       localStorage.setItem('score', newScore);
   
       alert(`Incorrect guess! The correct country was ${currentFlag.name}. Try again.`);
-      setNewFlag(); // Generate a new flag
+      setNewFlag(); 
     }
   };
   
  
 
   return (
-    <div className="fixed w-screen h-screen flex flex-col items-center bg-stone-800 text-main">
+    <div className="font-montserrat fixed w-screen h-screen flex flex-col items-center bg-stone-800 text-main">
       <Header />
-      <div className="mt-20 text-xl">Score: {score}</div>
-      <div className="mt-2 text-xl">High Score: {highScore}</div>
+      <div className="mt-20 xl:text-2xl text-xl">Current Score: {score}</div>
+      <div className="mt-2 xl:text-2xl text-xl">High Score: {highScore}</div>
       <FlagDisplay currentFlag={currentFlag} />
       <InputBox onGuess={handleGuess} />
     </div>
