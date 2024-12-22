@@ -29,31 +29,41 @@ const App = () => {
 
   // Function to handle guesses
   const handleGuess = (guess) => {
-    if (guess.toLowerCase().trim() === currentFlag.name.toLowerCase().trim()) {
+    const sanitizedGuess = guess.toLowerCase().trim(); // Sanitize user input
+    const correctAnswer = currentFlag.name.toLowerCase().trim(); // Sanitize flag name
+  
+    if (sanitizedGuess === correctAnswer) {
+      // Correct guess logic
       const newScore = score + 1;
       setScore(newScore);
-      localStorage.setItem('score', newScore); // Save score to localStorage
-
+      localStorage.setItem('score', newScore);
+  
       const updatedHighScore = Math.max(highScore, newScore);
       setHighScore(updatedHighScore);
-      localStorage.setItem('highScore', updatedHighScore); // Save high score to localStorage
-      setNewFlag(); // Generate a new flag after the correct guess
+      localStorage.setItem('highScore', updatedHighScore);
+  
+      setNewFlag(); // Generate a new flag
+    } else if (sanitizedGuess === "") {
+      // Empty input alert
+      alert("Please do not leave the input blank.");
     } else {
+      // Incorrect guess logic
       const newScore = 0;
       setScore(newScore);
-      localStorage.setItem('score', newScore)
+      localStorage.setItem('score', newScore);
+  
       alert(`Incorrect guess! The correct country was ${currentFlag.name}. Try again.`);
-      setNewFlag()
+      setNewFlag(); // Generate a new flag
     }
   };
-
+  
  
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center bg-stone-800 text-main">
+    <div className="fixed w-screen h-screen flex flex-col items-center bg-stone-800 text-main">
       <Header />
-      <div className="mt-10 text-3xl">Score: {score}</div>
-      <div className="mt-10 text-3xl">High Score: {highScore}</div>
+      <div className="mt-20 text-xl">Score: {score}</div>
+      <div className="mt-2 text-xl">High Score: {highScore}</div>
       <FlagDisplay currentFlag={currentFlag} />
       <InputBox onGuess={handleGuess} />
     </div>
