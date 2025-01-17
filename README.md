@@ -1,8 +1,20 @@
-# React + Vite
+# FlagsIO  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FlagsIO is an interactive web-based game where users test their knowledge of world flags. The game challenges players to guess the correct country name based on a displayed flag.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features  
+- Dynamic flag display for different countries.  
+- Score tracking for users.  
+- Clean, responsive user interface.  
+- Randomized flag sequences to keep the game engaging.  
+
+## Technologies Used  
+- **Frontend**: React.js 
+- **Styling**: Tailwind CSS
+
+## Installation  
+1. Clone the repository:  
+   ```bash  
+   git clone https://github.com/vedkulk/FlagsIO.git  
+   cd FlagsIO
